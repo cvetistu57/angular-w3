@@ -1,0 +1,81 @@
+.content-wrapper{	
+	background-color: rgb( 255, 196, 196);
+	font-family: Fira Sans, sans-serif;
+	margin: 0;
+	padding: 0;
+    width:100%;
+    height: 100%;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: row;
+  }
+
+.main-note{
+    background-color: white;
+	padding: 30px;
+    margin: 20px;
+	box-shadow: 0 6px 20px 0 rgba(0,0,0,0.19), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width:60%;
+    height: auto;
+    
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 40%;
+    float: left;
+    background-color: white;
+	padding: 30px;
+	box-shadow: 0 6px 20px 0 rgba(0,0,0,0.19), 0 6px 20px 0 rgba(0,0,0,0.19);
+    height: auto;
+}
+
+input[type=text], textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid grey;
+	border-radius: 4px;
+    &.error-message {
+        border-color: red;
+    }
+   
+}
+
+label {
+	padding: 20px 15px 10px 0;
+	display: inline-block;
+}
+
+button{
+	background-color: rgb( 225, 77, 112);
+	cursor: pointer;
+	font-family: Fira Sans, sans-serif;
+	color: white;
+	border: rgba( 0, 0, 0, 1);
+	border-radius: 4px;
+	padding: 10px 20px;
+    margin-top: 15px;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+	
+
+.submitBtn:hover{
+	background-color: rgb( 218, 31, 81);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.error-message{
+        color: red;
+        font-size: 14px;
+        margin-top: 10px ;
+}
+
+.note {
+    padding: 15px;
+	border: 1px solid grey;
+	border-radius: 4px;
+}

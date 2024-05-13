@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+<div class = "main-note">
+<form (ngSubmit)="saveNote()">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required minlength="3" [(ngModel)]="note.title" #title="ngModel" [ngClass]="{'error': title.invalid && (title.dirty || title.touched)}" class="">
+  <div *ngIf="title.invalid && (title.dirty || title.touched || isNoteSaved)" class="error-message">
+      <div *ngIf="isNoteSaved && title.errors?.['required']">Title is required.</div>
+      <div *ngIf="title.errors?.['minlength']">Enter at least 3 characters.</div>
+  </div>
+
+  <label for="content">Content:</label>
+  <textarea id="content" name="content" required minlength="10" [(ngModel)]="note.content" #content="ngModel" [ngClass]="{'error': content.invalid && (content.dirty || content.touched)}" class=""></textarea>
+  <div *ngIf="content.invalid && (content.dirty || content.touched || isNoteSaved)" class="error-message">
+      <div *ngIf="isNoteSaved && content.errors?.['required']">Content is required.</div>
+      <div *ngIf="content.errors?.['minlength']">Enter at least 10 characters.</div>
+  </div>
+
+  <button type="submit" class="submitBtn">Save Note</button>
+</form>
+</div>
+
+<div class="notes-list">
+  <div *ngIf="notes.length > 0; else noNotesMessage">
+  <div *ngFor="let note of notes; let i = index" class="note" (click)="toggleNoteActions(i)">
+    <div class="note-info" [ngClass]="{'selected': selectedNoteIndex === i}">
+      <h2 class="note-title">{{ note.title }}</h2>
+      <p class="note-content">{{ note.content }}</p>
+    </div>
+
+    <div class="note-actions" [hidden]="!showActions[i]">
+      <button class="edit" (click)="editNote(this.note)">Edit</button>
+      <button class="delete" (click)="deleteNote(note)">Delete</button>
+    </div>
+  </div>
+  </div>
+
+  <ng-template #noNotesMessage>
+    <p>No notes</p>
+  </ng-template>
+</div>
+</div>
